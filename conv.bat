@@ -13,7 +13,7 @@ ffmpeg -hide_banner -stats -ss %ss% -to %to% -i "%~1" -preset medium -c:v hevc -
 GOTO END
 
 :TO
-ffmpeg -hide_banner -stats -i -ss %ss% "%~1" -preset medium -c:v hevc -c:a aac %param% "%~n1-1.mp4" -y
+ffmpeg -hide_banner -stats -ss %ss% -i "%~1" -preset medium -c:v hevc -c:a aac %param% "%~n1-1.mp4" -y
 
 
 :END
