@@ -1,0 +1,1 @@
+gallery-dl -D . --cookies "D:\huevadas\bin\cookies.txt" --cookies "D:\huevadas\bin\cookies-b6n6n6.txt" %*
