@@ -1,27 +1,27 @@
 @echo off
 
 setlocal
-set /P ss=Tiempo de inicio:
-set /P to=Tiempo de fin: 
-set /P param=Parametros extra: 
-set /P gay=Usar libx264? 
-set /P format=Extension (default: mp4): 
 
-IF "%gay%"=="y" SET gay=-c:v libx264
+SET /P tiempo_inicio=Tiempo de inicio:
+SET /P tiempo_fin=Tiempo de fin: 
+SET /P codec=Codec? (default = hevc, y = libx264)
+SET /P format=Extension (default: mp4): 
+SET /P params=Parametros extra: 
+
+:: Inicio y fin
+IF "%tiempo_inicio%"=="" SET tiempo_inicio=0
+
+SET "to_param="
+IF NOT "%tiempo_fin%"=="" SET to_param=-to %tiempo_fin%
+
+:: Selección de codec y formato
+IF /i "%codec%"=="y" SET codec=libx264
+IF /i "%codec%"=="a" SET codec=libx264
+IF "%codec%"=="" SET codec=hevc
 
 IF "%format%"=="" SET format=mp4
 
-IF "%ss%"=="" SET ss=0
-
-IF "%to%"=="" GOTO TO
-
-ffmpeg -hide_banner -stats -ss %ss% -to %to% -i "%~1" -preset medium -c:v hevc -c:a aac %gay% %param% "%~n1-1.%format%" -y
-GOTO END
-
-:TO
-ffmpeg -hide_banner -stats -ss %ss% -i "%~1" -preset medium -c:v hevc -c:a aac %gay% %param% "%~n1-1.%format%" -y
-
-
-:END
+:: Comando
+ffmpeg -hide_banner -stats -ss %tiempo_inicio% %to_param% -i "%~1" -preset medium -c:v %codec% -c:a aac %params% "%~n1-1.%format%" -y
 
 endlocal
