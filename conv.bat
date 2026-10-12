@@ -5,7 +5,7 @@ setlocal
 SET /P tiempo_inicio=Tiempo de inicio:
 SET /P tiempo_fin=Tiempo de fin: 
 SET /P codec=Codec? (default = hevc, y = libx264)
-SET /P format=Extension (default: mp4): 
+SET /P format=Extension (default = mp4): 
 SET /P params=Parametros extra: 
 
 :: Inicio y fin
