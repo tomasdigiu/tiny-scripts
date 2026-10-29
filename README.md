@@ -1,7 +1,7 @@
 # tiny scripts
 Scripts que fui haciendo con el tiempo y en base a mis necesidades. La idea es tener herramientas rápidas para convertir o descargar imágenes y videos sin necesidad de abrir un programa entero.
 
-## conv.bat y gif.bat
+## conv.bat - gif.bat
 **Modo de uso**: arrastrando un video al script, o pasándolo como parámetro por consola. Ejemplo: 
 ```
 C:\>conv input.mp4
@@ -9,19 +9,19 @@ C:\>gif input.mp4
 ```
 
 ### conv.bat
-Para convertir y recortar videos con ffmpeg. Por default (sin poner valores en los prompts que te pide) te convierte el video a `.mp4` con codec `hevc`.
+Convertir y recortar videos con ffmpeg. Por default (sin poner valores en los prompts que te pide) te convierte el video a `.mp4` con codec `hevc`. Elegir `libx264` si te encontrás con problemas de compatibilidad para reproducirlo o subirlo a algún lado.
 
-Si se selecciona **copy** como codec, se crea un archivo sin recodificación, por lo que recortar un video es prácticamente instantáneo. Según el formato del input, esto puede generar inconsistencias en la reproducción.
+Si se selecciona `copy` como codec, se crea un archivo sin recodificación, por lo que recortar un video es prácticamente instantáneo. Según el formato del input, esto puede generar inconsistencias en la reproducción.
 
 ### gif.bat
-Para crear gifs de alta calidad usando ffmpeg y gifski.
+Crear gifs de alta calidad usando gifski, acompañado de ffmpeg.
 
 Recomiendo ejecutar `gifski.exe -h` en la consola para ver las (pocas) opciones disponibles, pero una que destaco es:
 
-`-Q, --quality <1-100>` Por default es 90, y bajarlo un poco ayuda bastante a reducir el tamaño del output sin afectar tanto la calidad, aunque la mayor diferencia la hace el tamaño y los FPS.
+`-Q --quality <1-100>` Por default es 90, y bajarlo ayuda un poco a reducir el tamaño sin cambiar las dimensiones o fps.
 
 
-## yt.bat y gallery.bat
+## yt.bat - gallery.bat
 **Modo de uso**: por consola, pasando opciones si se desea, seguido de uno o más links.
 ```
 C:\>yt [opciones] <URL> [<URL>...]
@@ -39,14 +39,14 @@ Para esto se utilizan las **cookies**, que contienen las sesiones abiertas e inf
 
 
 ### yt.bat
-Para descargar videos. Soporta un gran número de páginas, listadas en el [repo oficial de yt-dlp](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md).
+Descarga de videos. Soporta un gran número de páginas, listadas en el [repo oficial de yt-dlp](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md).
 
 Ejecutar `yt --help` para ver las opciones disponibles. Destaco una sola:
 
 `-t <template>` Templates para descargar un formato específico. `<template>` puede ser **mp4**, **mp3**, **mkv** o **aac**.
 
 ### gallery.bat
-Para descargar de sitios de hosteo de imágenes, listados en el [repo oficial de gallery-dl](https://github.com/mikf/gallery-dl/blob/master/docs/supportedsites.md).
+Descarga de imágenes y galerías en redes o sitios de hosteo de imágenes, listados en el [repo oficial de gallery-dl](https://github.com/mikf/gallery-dl/blob/master/docs/supportedsites.md).
 
 Ejecutar `gallery --help` para ver las opciones disponibles. Destaco las siguientes:
 
